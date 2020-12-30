@@ -26,6 +26,7 @@
         <activity android:name=".TeacherMyCoursesActivity"></activity>
         <activity android:name=".TeacherFeedbackActivity"></activity>
         <activity android:name=".TeacherMobileAppDevActivity"></activity>
+        <activity android:name=".StudentProfile"></activity>
     </application>
 
 </manifest>
