@@ -15,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class StudentMyCoursesActivity extends AppCompatActivity {
@@ -24,10 +27,31 @@ public class StudentMyCoursesActivity extends AppCompatActivity {
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
 
+    private TextView textView_fullname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_mycourses_activity);
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String email = user.getEmail();
+            String name="";
+            char[] ch = email.toCharArray();
+            for (char c : ch){
+                if(Character.valueOf(c).compareTo(Character.valueOf('@')) != 0){
+                    name = name+c;
+                }
+                else{
+                    break;
+                }
+            }
+            String ID_name = new String(name);
+
+            textView_fullname = (TextView) findViewById(R.id.textView6);
+            textView_fullname.setText(ID_name);
+
+
         mySearchView = (SearchView)findViewById(R.id.searchbox);
         mList = (ListView)findViewById(R.id.mlist);
         list = new ArrayList<String>();

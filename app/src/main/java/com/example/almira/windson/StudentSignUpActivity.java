@@ -49,12 +49,6 @@ public class StudentSignUpActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),StudentMyCoursesActivity.class));
-            finish();
-        }
-        System.out.println("11111111111111111111111111111111111111111111111");
-
         btnSignup = findViewById(R.id.btn_signup11);
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +56,6 @@ public class StudentSignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Intent intent = new Intent(StudentSignUpActivity.this, StudentMyCoursesActivity.class);
                 //startActivity(intent);
-                System.out.println("1111SIKINIT KÜÇ ÜK 1111111111111111111111111111111111111111111");
 
                 final String email = txt_email11.getText().toString().trim();
                 String password = txt_password11.getText().toString().trim();
@@ -87,7 +80,6 @@ public class StudentSignUpActivity extends AppCompatActivity {
 
 
                 // register the user in firebase
-                System.out.println("11111111CREATE USER WITH EMAILDEN ONCE1111111111111111");
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -107,7 +99,6 @@ public class StudentSignUpActivity extends AppCompatActivity {
                                     Log.d(TAG, "onFailure: Email not sent " + e.getMessage());
                                 }
                             });
-                            System.out.println("2222222222222222222222222222222222222222222EMAILIN ICI KARDESIM");
                             Toast.makeText(StudentSignUpActivity.this, "User Created.", Toast.LENGTH_SHORT).show();
                             userID = fAuth.getCurrentUser().getUid();
                             DocumentReference documentReference = fStore.collection("users").document(userID);
