@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "104126526812",
+    "project_id": "windson-2bbbc",
+    "storage_bucket": "windson-2bbbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104126526812:android:83cde4a64897be17797d99",
+        "android_client_info": {
+          "package_name": "com.example.almira.windson"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104126526812-efo3uml6vb28tr32mdm4e3qcmbaq6q8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.almira.windson",
+            "certificate_hash": "0185a047f409dfd31e413366a28603dd7c70ef7a"
+          }
+        },
+        {
+          "client_id": "104126526812-ect9kapjvhmv2d1piso5df8hsatko3g1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzZuogaUDoctlnIx_U77L-LGomp5CB-g4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104126526812-ect9kapjvhmv2d1piso5df8hsatko3g1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
