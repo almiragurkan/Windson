@@ -23,91 +23,64 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class StudentMobileAppDevActivity extends AppCompatActivity {
 
-    VideoView videoView;
-    MediaController mediaController;
+    Button btn_lessons, btn_quizzes, btn_quiz_ans, btn_moduleexm, btn_moduleexm_ans;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_mobileappdev_activity);
 
-        videoView = (VideoView)findViewById(R.id.videoView);
-        mediaController = new MediaController(this);
+        btn_lessons = findViewById(R.id.btn_lessons);
+        btn_quizzes = findViewById(R.id.btn_quizzes);
+        btn_quiz_ans = findViewById(R.id.btn_quiz_ans);
+        btn_moduleexm = findViewById(R.id.btn_moduleexm);
+        btn_moduleexm_ans = findViewById(R.id.btn_moduleexm_ans);
 
 
-        ExpandableListView topic1 = (ExpandableListView)findViewById(R.id.topic1);
-        topic1.setAdapter(new ProcessMobileApp(this));
-
-        topic1.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+        btn_lessons.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                if(ProcessMobileApp.mytopic[groupPosition].equals("   Introduction to Mobile Application Development")) {
-                    if (ProcessMobileApp.topicLists[childPosition].equals("Lesson1")) {
-                        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" +
-                                R.raw.tanitim);
-                        videoView.setVideoURI(uri);
-                        videoView.setMediaController(mediaController);
-                        mediaController.setAnchorView(videoView);
-                        videoView.start();
-                    } else if (ProcessMobileApp.topicLists[childPosition].equals("Lesson2")) {
-                        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" +
-                                R.raw.tanitim);
-                        videoView.setVideoURI(uri);
-                        videoView.setMediaController(mediaController);
-                        mediaController.setAnchorView(videoView);
-                        videoView.start();
-                    } else if (ProcessMobileApp.topicLists[childPosition].equals("Quiz")) {
-
-                    } else {
-
-                    }
-                }
-                else if(ProcessMobileApp.mytopic[groupPosition].equals("   User Interface Layout Management")){
-                    if (ProcessMobileApp.topicLists[childPosition].equals("Lesson1")) {
-                        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" +
-                                R.raw.tanitim);
-                        videoView.setVideoURI(uri);
-                        videoView.setMediaController(mediaController);
-                        mediaController.setAnchorView(videoView);
-                        videoView.start();
-                    } else if (ProcessMobileApp.topicLists[childPosition].equals("Lesson2")) {
-                        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" +
-                                R.raw.tanitim);
-                        videoView.setVideoURI(uri);
-                        videoView.setMediaController(mediaController);
-                        mediaController.setAnchorView(videoView);
-                        videoView.start();
-                    } else if (ProcessMobileApp.topicLists[childPosition].equals("Quiz")) {
-
-                    } else {
-
-                    }
-                }else if(ProcessMobileApp.mytopic[groupPosition].equals("    Event-driven Programming")){
-                    if (ProcessMobileApp.topicLists[childPosition].equals("Lesson1")) {
-                        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" +
-                                R.raw.tanitim);
-                        videoView.setVideoURI(uri);
-                        videoView.setMediaController(mediaController);
-                        mediaController.setAnchorView(videoView);
-                        videoView.start();
-                    } else if (ProcessMobileApp.topicLists[childPosition].equals("Lesson2")) {
-                        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" +
-                                R.raw.tanitim);
-                        videoView.setVideoURI(uri);
-                        videoView.setMediaController(mediaController);
-                        mediaController.setAnchorView(videoView);
-                        videoView.start();
-                    } else if (ProcessMobileApp.topicLists[childPosition].equals("Quiz")) {
-
-                    } else {
-
-                    }
-                }
-                return false;
+            public void onClick(View v) {
+                //videolu versiyonu olcak unutma!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                startActivity( new Intent(StudentMobileAppDevActivity.this , VideoActivityLessons.class));
             }
         });
 
-    }
+        btn_quizzes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(StudentMobileAppDevActivity.this , ImagesActivityQuizzes.class));
+                
+            }
+        });
+
+        btn_quiz_ans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(StudentMobileAppDevActivity.this , ImagesActivityQuizAnswers.class));
+
+            }
+        });
+
+
+        btn_moduleexm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(StudentMobileAppDevActivity.this , ImagesActivityModules.class));
+
+            }
+        });
+
+        btn_moduleexm_ans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(StudentMobileAppDevActivity.this , ImagesActivityModuleExamAnswers.class));
+
+            }
+        });
+
+        }
+
 
 
     @Override

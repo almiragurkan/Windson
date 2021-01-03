@@ -36,6 +36,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+
+
+
 import java.io.IOException;
 
 
@@ -43,13 +46,14 @@ public class TeacherMobileAppDevActivity extends AppCompatActivity {
 
     Button btn_upload1, btn_video;
     Button btn_upload2, btn_quiz;
-    Button btn_upload3, btn_answer;
+    Button btn_upload3, btn_quizanswer;
     Button btn_upload4, btn_module;
+    Button btn_upload5, btn_moduleanswers;
     EditText txtdata ;
     ImageView imgview;
     Uri FilePathUri;
-    StorageReference storageReference, storageReference2, storageReference3, storageReference4;
-    DatabaseReference databaseReference, databaseReference2, databaseReference3, databaseReference4;
+    StorageReference storageReference, storageReference2, storageReference3, storageReference4, storageReference5;
+    DatabaseReference databaseReference, databaseReference2, databaseReference3, databaseReference4, databaseReference5;
     int Image_Request_Code = 7;
     ProgressDialog progressDialog ;
     VideoView videoView;
@@ -84,15 +88,20 @@ public class TeacherMobileAppDevActivity extends AppCompatActivity {
         btn_quiz = (Button)findViewById(R.id.btn_quiz);
         btn_upload2= (Button)findViewById(R.id.btn_upload2);
 
-        storageReference3 = FirebaseStorage.getInstance().getReference("Answers");
-        databaseReference3 = FirebaseDatabase.getInstance().getReference("Answers");
-        btn_answer = (Button)findViewById(R.id.btn_answer);
+        storageReference3 = FirebaseStorage.getInstance().getReference("Quiz Answers");
+        databaseReference3 = FirebaseDatabase.getInstance().getReference("Quiz Answers");
+        btn_quizanswer = (Button)findViewById(R.id.btn_quizanswer);
         btn_upload3= (Button)findViewById(R.id.btn_upload3);
 
         storageReference4 = FirebaseStorage.getInstance().getReference("Modules");
         databaseReference4 = FirebaseDatabase.getInstance().getReference("Modules");
         btn_module = (Button)findViewById(R.id.btn_module);
         btn_upload4= (Button)findViewById(R.id.btn_upload4);
+
+        storageReference5 = FirebaseStorage.getInstance().getReference("Module Exam Answers");
+        databaseReference5 = FirebaseDatabase.getInstance().getReference("Module Exam Answers");
+        btn_moduleanswers = (Button)findViewById(R.id.btn_module_answers);
+        btn_upload5= (Button)findViewById(R.id.btn_upload5);
 
 
         btn_video.setOnClickListener(new View.OnClickListener() {
@@ -110,17 +119,6 @@ public class TeacherMobileAppDevActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 UploadVideo();
-
-            }
-        });
-
-
-        Button btn_feedback = findViewById(R.id.btn_feedback);
-        btn_feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TeacherMobileAppDevActivity.this, TeacherFeedbackActivity.class);
-                startActivity(intent);
 
             }
         });
@@ -146,7 +144,7 @@ public class TeacherMobileAppDevActivity extends AppCompatActivity {
         });
 
 
-        btn_answer.setOnClickListener(new View.OnClickListener() {
+        btn_quizanswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -181,6 +179,25 @@ public class TeacherMobileAppDevActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 UploadImage(storageReference4,databaseReference4);
+
+            }
+        });
+
+        btn_moduleanswers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Image"), Image_Request_Code);
+            }
+        });
+
+        btn_upload5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                UploadImage(storageReference5,databaseReference5);
 
             }
         });
@@ -274,21 +291,28 @@ public class TeacherMobileAppDevActivity extends AppCompatActivity {
 
             progressDialog.setTitle("Image is Uploading...");
             progressDialog.show();
-            StorageReference storageReference2 = sR.child(System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
+            final StorageReference storageReference2 = sR.child(System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
             storageReference2.putFile(FilePathUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            storageReference2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    String TempImageName = txtdata.getText().toString().trim();
+                                    progressDialog.dismiss();
+                                    Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
+                                    @SuppressWarnings("VisibleForTests")
+                                    uploadinfo imageUploadInfo = new uploadinfo(TempImageName, uri.toString());
+                                    String ImageUploadId = dR.push().getKey();
+                                    dR.child(ImageUploadId).setValue(imageUploadInfo);
+                                }
 
-                            String TempImageName = txtdata.getText().toString().trim();
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
-                            @SuppressWarnings("VisibleForTests")
-                            uploadinfo imageUploadInfo = new uploadinfo(TempImageName, taskSnapshot.getUploadSessionUri().toString());
-                            String ImageUploadId = dR.push().getKey();
-                            dR.child(ImageUploadId).setValue(imageUploadInfo);
+                            });
+
                         }
                     });
+
         }
         else {
 

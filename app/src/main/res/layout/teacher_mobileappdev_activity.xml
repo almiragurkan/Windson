@@ -8,18 +8,6 @@
     >
 
     <Button
-        android:id="@+id/btn_feedback"
-        android:layout_width="261dp"
-        android:layout_height="41dp"
-        android:backgroundTint="#82B1FF"
-        android:text="GIVE FEEDBACK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
-
-    <Button
         android:id="@+id/btn_upload1"
         android:layout_width="41dp"
         android:layout_height="41dp"
@@ -39,21 +27,22 @@
         android:text="ADD QUIZZES"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <Button
-        android:id="@+id/btn_answer"
-        android:layout_width="261dp"
+        android:id="@+id/btn_upload2"
+        android:layout_width="41dp"
         android:layout_height="41dp"
-        android:backgroundTint="#FFE57F"
-        android:text="ADD QUIZZES ANSWERS"
+        android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <Button
         android:id="@+id/btn_upload4"
@@ -62,10 +51,45 @@
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.889" />
+        app:layout_constraintVertical_bias="0.792" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="91dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/windson_amblem" />
+
+    <Button
+        android:id="@+id/btn_upload5"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.888" />
+
+    <Button
+        android:id="@+id/btn_module_answers"
+        android:layout_width="261dp"
+        android:layout_height="41dp"
+        android:backgroundTint="#82B1FF"
+        android:text="ADD MODULE EXAM ANSWERS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.888" />
 
     <Button
         android:id="@+id/btn_upload3"
@@ -74,10 +98,10 @@
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/btn_module"
@@ -87,9 +111,23 @@
         android:text="ADD MODULE EXAMS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.889" />
+        app:layout_constraintVertical_bias="0.793" />
+
+    <Button
+        android:id="@+id/btn_quizanswer"
+        android:layout_width="261dp"
+        android:layout_height="41dp"
+        android:backgroundTint="#FFE57F"
+        android:text="ADD QUIZZES ANSWERS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/btn_video"
@@ -102,18 +140,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.515" />
-
-    <Button
-        android:id="@+id/btn_upload2"
-        android:layout_width="41dp"
-        android:layout_height="41dp"
-        android:text="+"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702" />
 
     <ImageView
         android:id="@+id/image_view"
@@ -140,18 +166,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.052" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="91dp"
-        android:layout_height="68dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/windson_amblem" />
 
     <EditText
         android:id="@+id/txtdata"
