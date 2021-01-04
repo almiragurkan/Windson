@@ -41,7 +41,6 @@ public class StudentMobileAppDevActivity extends AppCompatActivity {
         btn_lessons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //videolu versiyonu olcak unutma!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 startActivity( new Intent(StudentMobileAppDevActivity.this , VideoActivityLessons.class));
             }
         });
