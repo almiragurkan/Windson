@@ -9,6 +9,7 @@ Description
 -Due to the epidemic, today we have difficulties in improving ourselves and receiving education. That's why we need a platform where distance education can benefit us the most. Our aim is to find a solution to this problem. For this reason, we thought of developing an application. In our practice, we will design a system with videos and quizzes that we can improve ourselves at the end of these trainings and a system where we can repeat these quizzes as much as we want. 
 
 Sample Scenario
+
 -The education portal asks the student to become a member of the website.
 
 -Student clicks sign-up button.
