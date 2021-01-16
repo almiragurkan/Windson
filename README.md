@@ -2,6 +2,15 @@
 
 MOBILE APPLICATION DEVELOPMENT 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NOTE:
+All application is coded together by Senem YALIN and Almira GÜRKAN.
+
+Video demonstration is prepared together. It's shown by Senem YALIN and sounded by Almira GÜRKAN.
+
+Consistency with our design: Student Course page and features feedback page have small changes which based on UI. Also, Teacher course page is added.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Project Topic
 
 -Educating online and to be certified after passing the exams at the end of the education.
